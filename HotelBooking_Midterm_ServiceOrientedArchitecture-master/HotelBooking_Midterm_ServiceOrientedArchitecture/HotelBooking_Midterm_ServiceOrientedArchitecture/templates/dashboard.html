@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>Dashboard <small>Welcome to Mai Den Nua Hotel</small></h1>
+<a class='btn btn-success' href='/search_room'>Make Reservation</a>
+
+<hr>
+
+
+<table class="table table-striped">
+    
+        
+</table>
+
+
+<table class="table table-striped">
+    <h3>Upcoming Reservations</h3>
+    <tr>
+        <th>Room Name</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    {% if upcoming %}
+        {% for a in upcoming %}
+            <tr>
+                <td>{{a[0]}}</td>
+                <td>{{a[1]}}</td>
+                <td>
+                    <form action="reservation/{{a.invoiceNo}}">
+                        <input type="submit" value="View" class="btn btn-default">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td>No Upcoming Reservations</td>
+        </tr>
+    {% endif %}
+</table>
+
+
+<hr>
+
+
+<table class="table table-striped">
+  
+</table>
+
+<hr> 
+
+<table class="table table-striped">
+   
+</table>
+
+
+
+{% endblock %} 
